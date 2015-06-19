@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html style="background-color:#D6FFFF">
+<head>
+<style>
+#div1, #div2, #div3, #div4, #div5, #div6, #div7, #div8, #div9, #div10, #div11, #div12
+{float: left; width:240px; height:240px; margin:10px;padding:10px;border:15px solid black; box-shadow: 10px 10px 5px #888888; background-color: #F3F3F3}
+
+</style>
+<script>
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
+</script>
+</head>
+<body>
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <img src="Activebtn.png" draggable="true" ondragstart="drag(event)" id="drag1" >
+<p style="font-size: 50px; text-align: center">Task 1</p>
+</div>
+
+<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"><p style="font-size: 50px; text-align: center">Task 2</p></div>
+</div>
+<div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)"><p style="font-size: 50px; text-align: center">Task 3</p></div>
+
+</div>
+<div id="div4" ondrop="drop(event)" ondragover="allowDrop(event)"><p style="font-size: 50px; text-align: center">Task 4</p></div>
+
+<div id="div5" ondrop="drop(event)" ondragover="allowDrop(event)"><p style="font-size: 50px; text-align: center">Task 5</p></div>
+
+<div id="div6" ondrop="drop(event)" ondragover="allowDrop(event)"><p style="font-size: 50px; text-align: center">Task 6</p></div>
+
+<div id="div7" ondrop="drop(event)" ondragover="allowDrop(event)"><p style="font-size: 50px; text-align: center">Task 7</p></div>
+
+<div id="div8" ondrop="drop(event)" ondragover="allowDrop(event)"><p style="font-size: 50px; text-align: center">Task 8</p></div>
+
+<div id="div9" ondrop="drop(event)" ondragover="allowDrop(event)"><p style="font-size: 50px; text-align: center">Task 9</p></div>
+
+<div id="div10" ondrop="drop(event)" ondragover="allowDrop(event)"><p style="font-size: 50px; text-align: center">Task 10</p></div>
+
+<div id="div11" ondrop="drop(event)" ondragover="allowDrop(event)"><p style="font-size: 50px; text-align: center">Task 11</p></div>
+
+<div id="div12" ondrop="drop(event)" ondragover="allowDrop(event)"><p style="font-size: 50px; text-align: center">Task 12</p></div>
+<div> 
+
+<script>
+function clickCounter() {
+    if(typeof(Storage) !== "undefined") {
+        if (sessionStorage.clickcount) {
+            sessionStorage.clickcount = Number(sessionStorage.clickcount)+1;
+        } else {
+            sessionStorage.clickcount = 1;
+        }
+        document.getElementById("result").innerHTML = "You have completed " + sessionStorage.clickcount + " Sub-Task(s)";
+    } else {
+        document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+    }
+}
+</script>
+</head>
+<body>
+<p> <button style="font-size:24px; margin: 0 auto;
+    width: 100%" onclick="clickCounter()" type="button">Click When Sub-Task Complete</button></p>
+<div id="result"></div>
+<p>quit the page to refresh the counter (working on it).</p>
+</body>  
+
+</div>
+
+</body>
+
+</html>
+
